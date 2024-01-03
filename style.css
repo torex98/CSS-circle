@@ -1,0 +1,52 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #050210;
+}
+
+.container {
+    position: relative;
+}
+
+.circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fb5dad, #55fb9f, #b97aff);
+    animation: pulse 2s infinite alternate; 
+    position: relative;
+}
+
+.circle::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fb5dad, #55fb9f, #b97aff);
+    filter: blur(20px);
+    z-index: -1;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.8);
+        box-shadow: 0 0 0 0 rgba(251, 93, 173, 0.7);
+        background: radial-gradient(circle, #fb5dad, #55fb9f, #b97aff);
+    }
+    50% {
+        box-shadow: 0 0 40px 20px rgba(251, 93, 173, 0);
+        background: radial-gradient(circle, #55fb9f, #b97aff, #fb5dad);
+    }
+    100% {
+        transform: scale(1.5); 
+        box-shadow: 0 0 0 0 rgba(251, 93, 173, 0);
+        background: radial-gradient(circle, #b97aff, #fb5dad, #55fb9f); 
+    }
+}
+
